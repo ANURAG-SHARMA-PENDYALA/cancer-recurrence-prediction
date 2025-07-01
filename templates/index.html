@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thyroid Cancer Recurrence Prediction</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.0.2/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100">
+
+    <!-- Container -->
+    <div class="max-w-3xl mx-auto mt-10 p-8 bg-white shadow-lg rounded-lg">
+
+        <!-- Title -->
+        <h1 class="text-3xl font-bold text-center text-gray-800 mb-6">Thyroid Cancer Recurrence Prediction</h1>
+
+        <!-- Prediction Form -->
+        <form method="POST" action="/predict" class="space-y-4">
+
+            <!-- Age -->
+            <div>
+                <label for="age" class="block text-sm font-medium text-gray-700">Age</label>
+                <input type="number" id="age" name="age" class="mt-1 p-2 block w-full border border-gray-300 rounded-md" required>
+            </div>
+
+            <!-- Gender -->
+            <div>
+                <label for="gender" class="block text-sm font-medium text-gray-700">Gender</label>
+                <select id="gender" name="gender" class="mt-1 block w-full p-2 border border-gray-300 rounded-md" required>
+                    <option value="0">Female</option>
+                    <option value="1">Male</option>
+                </select>
+            </div>
+
+            <!-- Smoking -->
+            <div>
+                <label for="smoking" class="block text-sm font-medium text-gray-700">Smoking</label>
+                <select id="smoking" name="smoking" class="mt-1 block w-full p-2 border border-gray-300 rounded-md" required>
+                    <option value="0">No</option>
+                    <option value="1">Yes</option>
+                </select>
+            </div>
+
+            <!-- Hx Smoking -->
+            <div>
+                <label for="hx_smoking" class="block text-sm font-medium text-gray-700">Hx Smoking</label>
+                <select id="hx_smoking" name="hx_smoking" class="mt-1 block w-full p-2 border border-gray-300 rounded-md" required>
+                    <option value="0">No</option>
+                    <option value="1">Yes</option>
+                </select>
+            </div>
+
+            <!-- Hx Radiotherapy -->
+            <div>
+                <label for="hx_radiotherapy" class="block text-sm font-medium text-gray-700">Hx Radiotherapy</label>
+                <select id="hx_radiotherapy" name="hx_radiotherapy" class="mt-1 block w-full p-2 border border-gray-300 rounded-md" required>
+                    <option value="0">No</option>
+                    <option value="1">Yes</option>
+                </select>
+            </div>
+
+            <!-- Thyroid Function -->
+            <div>
+                <label for="thyroid_function" class="block text-sm font-medium text-gray-700">Thyroid Function</label>
+                <select id="thyroid_function" name="thyroid_function" class="mt-1 block w-full p-2 border border-gray-300 rounded-md" required>
+                    <option value="1">Euthyroid</option>
+                    <option value="2">Clinical Hyperthyroidism</option>
+                    <option value="3">Clinical Hypothyroidism</option>
+                    <option value="4">Subclinical Hyperthyroidism</option>
+                    <option value="5">Subclinical Hypothyroidism</option>
+                </select>
+            </div>
+
+            <!-- Physical Examination -->
+            <div>
+                <label for="physical_exam" class="block text-sm font-medium text-gray-700">Physical Examination</label>
+                <select id="physical_exam" name="physical_exam" class="mt-1 block w-full p-2 border border-gray-300 rounded-md" required>
+                    <option value="1">Single nodular goiter-left</option>
+                    <option value="2">Multinodular goiter</option>
+                    <option value="3">Single nodular goiter-right</option>
+                    <option value="4">Normal</option>
+                    <option value="5">Diffuse goiter</option>
+                </select>
+            </div>
+
+            <!-- Adenopathy -->
+            <div>
+                <label for="adenopathy" class="block text-sm font-medium text-gray-700">Adenopathy</label>
+                <select id="adenopathy" name="adenopathy" class="mt-1 block w-full p-2 border border-gray-300 rounded-md" required>
+                    <option value="0">No</option>
+                    <option value="1">Right</option>
+                    <option value="2">Extensive</option>
+                    <option value="3">Left</option>
+                    <option value="4">Bilateral</option>
+                    <option value="5">Posterior</option>
+                </select>
+            </div>
+
+            <!-- Focality -->
+            <div>
+                <label for="focality" class="block text-sm font-medium text-gray-700">Focality</label>
+                <select id="focality" name="focality" class="mt-1 block w-full p-2 border border-gray-300 rounded-md" required>
+                    <option value="1">Uni-Focal</option>
+                    <option value="2">Multi-Focal</option>
+                </select>
+            </div>
+
+            <!-- Risk -->
+            <div>
+                <label for="risk" class="block text-sm font-medium text-gray-700">Risk</label>
+                <select id="risk" name="risk" class="mt-1 block w-full p-2 border border-gray-300 rounded-md" required>
+                    <option value="1">Low</option>
+                    <option value="2">Intermediate</option>
+                    <option value="3">High</option>
+                </select>
+            </div>
+
+            <!-- T Stage -->
+            <div>
+                <label for="t_stage" class="block text-sm font-medium text-gray-700">T Stage</label>
+                <select id="t_stage" name="t_stage" class="mt-1 block w-full p-2 border border-gray-300 rounded-md" required>
+                    <option value="1">T1a</option>
+                    <option value="2">T1b</option>
+                    <option value="3">T2</option>
+                    <option value="4">T3a</option>
+                    <option value="5">T3b</option>
+                    <option value="6">T4a</option>
+                    <option value="7">T4b</option>
+                </select>
+            </div>
+
+            <!-- N Stage -->
+            <div>
+                <label for="n_stage" class="block text-sm font-medium text-gray-700">N Stage</label>
+                <select id="n_stage" name="n_stage" class="mt-1 block w-full p-2 border border-gray-300 rounded-md" required>
+                    <option value="0">N0</option>
+                    <option value="1">N1a</option>
+                    <option value="2">N1b</option>
+                </select>
+            </div>
+
+            <!-- M Stage -->
+            <div>
+                <label for="m_stage" class="block text-sm font-medium text-gray-700">M Stage</label>
+                <select id="m_stage" name="m_stage" class="mt-1 block w-full p-2 border border-gray-300 rounded-md" required>
+                    <option value="0">M0</option>
+                    <option value="1">M1</option>
+                </select>
+            </div>
+
+            <!-- Stage -->
+            <div>
+                <label for="stage" class="block text-sm font-medium text-gray-700">Stage</label>
+                <select id="stage" name="stage" class="mt-1 block w-full p-2 border border-gray-300 rounded-md" required>
+                    <option value="1">I</option>
+                    <option value="2">II</option>
+                    <option value="3">III</option>
+                    <option value="4">IVA</option>
+                    <option value="5">IVB</option>
+                </select>
+            </div>
+
+            <!-- Response -->
+            <div>
+                <label for="response" class="block text-sm font-medium text-gray-700">Response</label>
+                <select id="response" name="response" class="mt-1 block w-full p-2 border border-gray-300 rounded-md" required>
+                    <option value="1">Indeterminate</option>
+                    <option value="2">Excellent</option>
+                    <option value="3">Structural Incomplete</option>
+                    <option value="4">Biochemical Incomplete</option>
+                </select>
+            </div>
+
+            <!-- Submit Button -->
+            <div class="text-center">
+                <button type="submit" class="w-full bg-indigo-600 text-white font-bold py-2 px-4 rounded-md hover:bg-indigo-700">
+                    Predict
+                </button>
+            </div>
+        </form>
+
+        <!-- Display Prediction -->
+        {% if prediction_text %}
+            <div class="mt-6 bg-green-100 border-l-4 border-green-500 text-green-700 p-4" role="alert">
+                <p>{{ prediction_text }}</p>
+            </div>
+        {% endif %}
+
+    </div>
+
+</body>
+</html>
