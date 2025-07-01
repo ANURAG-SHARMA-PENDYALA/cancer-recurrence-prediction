@@ -1,4 +1,4 @@
-\# Hello Everyone, Welcome to my GitHub repository
+# Hello Everyone, Welcome to my GitHub repository
 
 
 
@@ -6,7 +6,7 @@ Cancer recurrence prediction in thyroid cancer is my project for the University 
 
 
 
-\## Outcomes of the Project:
+## Outcomes of the Project:
 
 * Successfully Implement Exploratory Data Analysis.
 * Feature Refinement and Model Efficiency Improvement.
@@ -15,7 +15,7 @@ Cancer recurrence prediction in thyroid cancer is my project for the University 
 
 
 
-\## How to run this project:
+## How to run this project:
 
 * Create a virtual environment using `python -m venv <environment\_name>` and install all the essential packages that are mentioned in \_\_requirements.txt\_\_ .
 * Run both the .pkl files and run the flask app to interact with the model.
